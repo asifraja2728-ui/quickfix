@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickFix - Find Local Services</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+    }
+    header {
+      background: #102b46;
+      color: white;
+      padding: 22px 16px;
+    }
+    header h1 { margin: 0; font-size: 28px; }
+    header p { margin-bottom: 0; }
+    main { padding: 20px 16px; max-width: 650px; margin: auto; }
+    .search, .card {
+      background: white;
+      padding: 18px;
+      border-radius: 14px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px #0000000d;
+    }
+    input, select {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      border: 1px solid #ccd3dc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background: #087e65;
+      color: white;
+      border: 0;
+      border-radius: 8px;
+      padding: 13px 18px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .service {
+      background: white;
+      padding: 18px 10px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    footer { text-align: center; padding: 25px; color: #657080; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>QuickFix</h1>
+    <p>Find. Connect. Fix.</p>
+    <p>Local services across India</p>
+  </header>
+
+  <main>
+    <section class="search">
+      <h2>Find a Service Near You</h2>
+      <input id="city" placeholder="Enter city or locality">
+      <select id="category">
+        <option value="">Choose a service</option>
+        <option>Electrician</option>
+        <option>Plumber</option>
+        <option>Carpenter</option>
+        <option>Painter</option>
+        <option>AC Mechanic</option>
+        <option>Bike Mechanic</option>
+        <option>Car Mechanic</option>
+        <option>Cleaner</option>
+      </select>
+      <button onclick="searchService()">Search</button>
+      <p id="message"></p>
+    </section>
+
+    <h2>Popular Services</h2>
+    <section class="services">
+      <div class="service">⚡<br>Electrician</div>
+      <div class="service">🔧<br>Plumber</div>
+      <div class="service">🪚<br>Carpenter</div>
+      <div class="service">❄️<br>AC Repair</div>
+      <div class="service">🏍️<br>Bike Mechanic</div>
+      <div class="service">🚗<br>Car Mechanic</div>
+    </section>
+
+    <section class="card">
+      <h2>Are You a Worker?</h2>
+      <p>Join QuickFix and connect with customers.</p>
+      <button onclick="alert('Worker registration will be added next.')">
+        Join as Worker
+      </button>
+    </section>
+  </main>
+
+  <footer>QuickFix © 2026</footer>
+
+  <script>
+    function searchService() {
+      const city = document.getElementById('city').value.trim();
+      const category = document.getElementById('category').value;
+      const message = document.getElementById('message');
+
+      if (!city || !category) {
+        message.textContent = 'Please enter your location and choose a service.';
+        return;
+      }
+      message.textContent = 'Search selected: ' + category + ' in ' + city +
+        '. Worker listings will be connected soon.';
+    }
+  </script>
+</body>
+</html>
